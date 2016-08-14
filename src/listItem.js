@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import ModalPopUp from './ModalPopUp';
 import ModalStore from './ModalStore';
+import AppActions from './AppActions';
 
 class ListItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isClicked: false,
-      classType: 'div-border'
+      classType: 'div-border',
+      isClicked: false
     }
   }
 
@@ -20,42 +21,32 @@ class ListItem extends Component {
   }
 
   render() {
-    if (this.state.isClicked) {
-      return (
-        <div>
-          <div onClick={this.handleClick.bind(this)} className={this.state.classType}>
-            {this.props.time}
-          </div>
-          <ModalPopUp show={this.state.isClicked}/>
-        </div>
-      )
-    } else {
-      return (
+
+
+    return (
+      <div>
         <div onClick={this.handleClick.bind(this)} className={this.state.classType}>
           {this.props.time}
         </div>
-      );
-    }
-  }
-
-  handleClick() {
-    this.setState({ isClicked: true });
+        <ModalPopUp selectedTime={this.props.time} show={this.state.isClicked} />
+      </div>
+    )
   }
 
   handleStoreChange() {
-    if (ModalStore.getActionType() === 'saved') {
-      this.setState({
-        classType: 'div-change',
-        isClicked:false
-      });
-    } else {
-      this.setState({
-        isClicked:false
-      });
+
+    let { isSelected } = ModalStore.getHours().find(({hour}) => hour === this.props.time);
+
+    if (isSelected) {
+      this.setState({ classType: 'div-change'});
     }
-    // this.setState({
-    //   classType: 'div-change'
-    // });
+    this.setState({isClicked: false})
+  }
+
+  handleClick() {
+    this.setState({
+      isClicked: true
+    })
   }
 }
 

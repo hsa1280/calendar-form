@@ -3,12 +3,20 @@ import AppDispatcher from './AppDispatcher';
 let AppActions = {
   saveInfo() {
     AppDispatcher.dispatch({
-      type: 'saved'
+      type: 'SAVED'
     })
   },
   cancelTyping() {
     AppDispatcher.dispatch({
-      type: 'cancled'
+      type: 'CANCLED'
+    })
+  },
+  scheduleTime(hour, name, phoneNumber) {
+    AppDispatcher.dispatch({
+      type: 'SCHEDULE',
+      hour,
+      name,
+      phoneNumber
     })
   }
 }
