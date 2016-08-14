@@ -21,6 +21,8 @@
     "babel-preset-react": "^6.11.1",
     "fbemitter": "^2.0.2",
     "flux": "^2.1.1",
+    "react-bootstrap": "^0.30.2",
+    "react-bootstrap-modal": "^2.1.0",
     "webpack": "^1.13.1"
   }
 }

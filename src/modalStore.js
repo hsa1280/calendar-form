@@ -3,8 +3,13 @@ import AppDispatcher from './AppDispatcher';
 
 const CHANGE_EVENT = 'change';
 let __emitter = new EventEmitter();
+let actionType = '';
 
 let ModalStore = {
+
+  getActionType() {
+    return actionType;
+  },
 
   addListener(callback) {
     return __emitter.addListener(CHANGE_EVENT, callback);
@@ -12,6 +17,7 @@ let ModalStore = {
 };
 
 ModalStore.dispatchToken = AppDispatcher.register((action) => {
+  actionType = action.type;
   __emitter.emit(CHANGE_EVENT);
 });
 

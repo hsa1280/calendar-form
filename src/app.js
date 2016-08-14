@@ -5,9 +5,9 @@ import ListItem from './ListItem';
 class Calendar extends Component {
   render() {
     let hours = Array.apply(0, Array(9)).map( (_, index) => index + 9 );
-    let listItems = hours.map((hour) => {
+    let listItems = hours.map((hour, index) => {
       return (
-        <ListItem time={hour} />
+        <ListItem time={hour} key={index}/>
       );
     });
     return (

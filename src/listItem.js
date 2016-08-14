@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Modal from './Modal';
+import ModalPopUp from './ModalPopUp';
 import ModalStore from './ModalStore';
 
 class ListItem extends Component {
@@ -23,10 +23,10 @@ class ListItem extends Component {
     if (this.state.isClicked) {
       return (
         <div>
-          <div className={this.state.classType}>
+          <div onClick={this.handleClick.bind(this)} className={this.state.classType}>
             {this.props.time}
           </div>
-          <Modal />
+          <ModalPopUp show={this.state.isClicked}/>
         </div>
       )
     } else {
@@ -43,9 +43,19 @@ class ListItem extends Component {
   }
 
   handleStoreChange() {
-    this.setState({
-      classType: 'div-change'
-    });
+    if (ModalStore.getActionType() === 'saved') {
+      this.setState({
+        classType: 'div-change',
+        isClicked:false
+      });
+    } else {
+      this.setState({
+        isClicked:false
+      });
+    }
+    // this.setState({
+    //   classType: 'div-change'
+    // });
   }
 }
 

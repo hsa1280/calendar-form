@@ -5,6 +5,11 @@ let AppActions = {
     AppDispatcher.dispatch({
       type: 'saved'
     })
+  },
+  cancelTyping() {
+    AppDispatcher.dispatch({
+      type: 'cancled'
+    })
   }
 }
 
