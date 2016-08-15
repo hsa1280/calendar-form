@@ -7,7 +7,7 @@ class ListItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      classType: 'list-group-item list-group-item-info',
+      backgroundStyling: 'list-group-item list-group-item-info',
       isClicked: false
     }
   }
@@ -21,14 +21,12 @@ class ListItem extends Component {
   }
 
   render() {
-
-
     return (
       <div>
-        <div onClick={this.handleClick.bind(this)} className={this.state.classType}>
+        <div onClick={this.handleOnClick.bind(this)} className={this.state.backgroundStyling}>
           {this.props.time}
         </div>
-        <ModalPopUp selectedTime={this.props.time} show={this.state.isClicked} />
+        <ModalPopUp time={this.props.time} isDisplay={this.state.isClicked} />
       </div>
     )
   }
@@ -37,16 +35,15 @@ class ListItem extends Component {
 
     let { isSelected } = ModalStore.getHours().find(({hour}) => hour === this.props.time);
 
+    //only update the time slot that has data set on
     if (isSelected) {
-      this.setState({ classType: 'list-group-item list-group-item-danger'});
+      this.setState({ backgroundStyling: 'list-group-item list-group-item-danger'});
     }
     this.setState({isClicked: false})
   }
 
-  handleClick() {
-    this.setState({
-      isClicked: true
-    })
+  handleOnClick() {
+    this.setState({ isClicked: true })
   }
 }
 

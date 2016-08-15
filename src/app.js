@@ -5,14 +5,14 @@ import modalStore from './stores/ModalStore';
 
 class Calendar extends Component {
   render() {
-    const listItems = modalStore.getHours().map(({hour, isSelected}) => {
+    const listItems = modalStore.getHours().map(({hour}) => {
       return (
-        <ListItem time={hour} key={hour} isSelected={isSelected}/>
+        <ListItem time={hour} key={hour}/>
       );
     });
     return (
       <div>
-        <h2 className='text-center'>Event Schedule</h2>
+        <h2 className='text-center'>Calendar Form</h2>
         {listItems}
       </div>
     );
