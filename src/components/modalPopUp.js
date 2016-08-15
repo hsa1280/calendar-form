@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import AppActions from './AppActions';
 import { Modal } from 'react-bootstrap';
-import ModalStore from './ModalStore';
+import AppActions from '../actions/AppActions';
+import ModalStore from '../stores/ModalStore';
 
 class ModalPopUp extends Component {
   constructor(props) {
@@ -40,26 +40,19 @@ class ModalPopUp extends Component {
   }
 
   handleSave() {
-    AppActions.scheduleTime(this.props.selectedTime, this.refs.name.value, this.refs.phoneNumber.value);
-    const selectedHour = ModalStore.getHours().find( ({hour}) => hour === this.props.selectedTime );
-    this.refs.name.value = selectedHour.name;
-    this.refs.phoneNumber.value = selectedHour.phoneNumber;
-    this.setState({showModal: false});
-    AppActions.saveInfo();
+    if (this.props.selectedTime, this.refs.name.value && this.refs.phoneNumber.value) {
+      AppActions.scheduleTime(this.props.selectedTime, this.refs.name.value, this.refs.phoneNumber.value);
+      const selectedHour = ModalStore.getHours().find( ({hour}) => hour === this.props.selectedTime );
+      this.refs.name.value = selectedHour.name;
+      this.refs.phoneNumber.value = selectedHour.phoneNumber;
+      this.setState({showModal: false});
+      AppActions.saveInfo();
+    }
   }
 
   close() {
     this.setState({showModal: false});
     AppActions.cancelTyping();
-  }
-
-  handleCancel() {
-    this.setState({
-      name: '',
-      phoneNumber: ''
-    });
-    this.refs.name.value = '';
-    this.refs.phoneNumber.value = '';
   }
 }
 

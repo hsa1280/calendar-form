@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import ModalPopUp from './ModalPopUp';
-import ModalStore from './ModalStore';
-import AppActions from './AppActions';
+import ModalStore from '../stores/ModalStore';
+import AppActions from '../actions/AppActions';
 
 class ListItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      classType: 'div-border',
+      classType: 'list-group-item list-group-item-info',
       isClicked: false
     }
   }
@@ -38,7 +38,7 @@ class ListItem extends Component {
     let { isSelected } = ModalStore.getHours().find(({hour}) => hour === this.props.time);
 
     if (isSelected) {
-      this.setState({ classType: 'div-change'});
+      this.setState({ classType: 'list-group-item list-group-item-danger'});
     }
     this.setState({isClicked: false})
   }

@@ -1,3 +1,5 @@
-1. why all components change color
-2. how to maintain the data in modal
-3. how to make pop up show up? Use flux, but how can I do something based on action type?
+How to run the application:
+
+step 1: git clone the repository, then run 'npm install';
+step 2: run 'npm run build' to create and bundle.js
+step 3: run 'npm start', to open http://localhost:3000/

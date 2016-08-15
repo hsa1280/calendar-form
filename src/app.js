@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import ListItem from './ListItem';
-import modalStore from './ModalStore';
+import ListItem from './components/ListItem';
+import modalStore from './stores/ModalStore';
 
 class Calendar extends Component {
   render() {
@@ -12,6 +12,7 @@ class Calendar extends Component {
     });
     return (
       <div>
+        <h2 className='text-center'>Event Schedule</h2>
         {listItems}
       </div>
     );
