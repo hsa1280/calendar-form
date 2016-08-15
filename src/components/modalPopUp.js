@@ -7,7 +7,8 @@ class ModalPopUp extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showModal: false
+      showModal: false,
+      requiredErrorMessage: false
     }
   }
 
@@ -19,6 +20,7 @@ class ModalPopUp extends Component {
 
   render() {
     const currentSelected = ModalStore.getHours().find(({hour}) => hour === this.props.time);
+    const errorMessage = this.state.requiredErrorMessage ? <p className="bg-danger">All fields are required!</p> : '';
 
     return (
       <Modal show={this.state.showModal}>
@@ -29,6 +31,7 @@ class ModalPopUp extends Component {
           <Modal.Body>
             <input className="form-control" type="text" placeholder="name" ref="name" defaultValue={currentSelected.name}/>
             <input className="form-control" type="text" placeholder="phone number" ref="phoneNumber" defaultValue={currentSelected.phoneNumber}/>
+            {errorMessage}
           </Modal.Body>
 
           <Modal.Footer>
@@ -42,10 +45,15 @@ class ModalPopUp extends Component {
   handleSave() {
     if (this.refs.name.value && this.refs.phoneNumber.value) {
       this.setState({
-        showModal: false
+        showModal: false,
+        requiredErrorMessage: false
       });
       //save the data to store if users click on save button
       AppActions.scheduleTime(this.props.time, this.refs.name.value, this.refs.phoneNumber.value);
+    } else {
+      this.setState({
+        requiredErrorMessage: true
+      });
     }
 
   }
