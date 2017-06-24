@@ -11,3 +11,4 @@ deployment:
         appname: calendar-form
       commands:
         - npm run build
+        - echo "Hello World"
