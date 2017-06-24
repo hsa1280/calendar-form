@@ -1,5 +1,11 @@
-  deployment:
-    staging:
-      branch: master
-      heroku:
-        appname: calendar-form
+machine:
+  node:
+    version: 7.8.0
+
+deployment:
+  staging:
+    branch: master
+    commands:
+      - npm run build
+    heroku:
+      appname: calandar-form
