@@ -2,4 +2,4 @@
     staging:
       branch: master
       heroku:
-        appname: calandar-form
+        appname: calendar-form
