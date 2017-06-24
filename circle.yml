@@ -4,6 +4,9 @@ machine:
 test:
   override:
     - "true"
+dependencies:
+  pre:
+    - npm install -g webpack
 compile:
   override:
     - npm run build
