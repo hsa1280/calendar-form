@@ -22,6 +22,6 @@ var javascriptEntryPath = path.resolve(__dirname, 'src', 'app.js');
   resolve: {
     root: [path.resolve(__dirname, 'src')],
     extensions: ['', '.js']
-  };
+  },
   devtool: "#inline-source-map"
 };
