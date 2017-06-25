@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import ListItem from '.src/components/ListItem';
-import modalStore from '.src/stores/ModalStore';
+import ListItem from './components/listItem';
+import modalStore from './stores/modalStore';
 
 class Calendar extends Component {
   render() {
