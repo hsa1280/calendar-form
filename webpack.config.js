@@ -3,7 +3,7 @@ var webpack = require('webpack');
 
  module.exports = {
   entry: [
-    '.src/app.js'
+    'app.js'
   ],
   output: {
     path: __dirname + '/src',
@@ -19,7 +19,7 @@ var webpack = require('webpack');
     }]
   },
   resolve: {
-    root: [path.resolve(__dirname)],
+    root: [path.resolve(__dirname, 'src')],
     extensions: ['', '.js']
   },
   devtool: "#inline-source-map"
