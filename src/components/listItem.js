@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import ModalPopUp from './ModalPopUp';
-import ModalStore from '../stores/ModalStore';
+import ModalPopUp from './modalPopUp';
+import ModalStore from '../stores/modalStore';
 
 class ListItem extends Component {
   constructor(props) {

@@ -1,4 +1,4 @@
-import AppDispatcher from '../dispatcher/AppDispatcher';
+import AppDispatcher from '../dispatcher/appDispatcher';
 
 let AppActions = {
   scheduleTime(hour, name, phoneNumber) {

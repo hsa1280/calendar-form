@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Modal } from 'react-bootstrap';
-import AppActions from '../actions/AppActions';
-import ModalStore from '../stores/ModalStore';
+import AppActions from '../actions/appActions';
+import ModalStore from '../stores/modalStore';
 
 class ModalPopUp extends Component {
   constructor(props) {

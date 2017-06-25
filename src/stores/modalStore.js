@@ -1,5 +1,5 @@
 import {EventEmitter} from 'fbemitter';
-import AppDispatcher from '../dispatcher/AppDispatcher';
+import AppDispatcher from '../dispatcher/appDispatcher';
 import constant from '../constant';
 
 const CHANGE_EVENT = 'change';
