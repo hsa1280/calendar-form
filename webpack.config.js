@@ -4,7 +4,7 @@ var javascriptEntryPath = path.resolve(__dirname, 'src', 'app.js');
 
  module.exports = {
   entry: [
-    javascriptEntryPath
+    './app.js'
   ],
   output: {
     path: __dirname + '/src',
@@ -19,10 +19,9 @@ var javascriptEntryPath = path.resolve(__dirname, 'src', 'app.js');
       }
     }]
   },
-  resolveLoader: {
-      modulesDirectories: ["web_loaders", "web_modules", "node_loaders", "node_modules"],
-      extensions: ["", ".webpack-loader.js", ".web-loader.js", ".loader.js", ".js"],
-      packageMains: ["webpackLoader", "webLoader", "loader", "main"]
-  },
+  resolve: {
+    root: [path.resolve(__dirname, 'src')],
+    extensions: ['', '.js']
+  };
   devtool: "#inline-source-map"
 };
