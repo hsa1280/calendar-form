@@ -3,7 +3,7 @@
 
    context: __dirname + "/src",
   entry: [
-    'app.js'
+    './app.js'
   ],
   output: {
     path: __dirname + '/src',
