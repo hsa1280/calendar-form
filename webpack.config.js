@@ -1,6 +1,5 @@
 var path = require('path');
 var webpack = require('webpack');
-var javascriptEntryPath = path.resolve(__dirname, 'src', 'app.js');
 
  module.exports = {
   entry: [
